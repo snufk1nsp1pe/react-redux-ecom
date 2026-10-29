@@ -26,7 +26,7 @@ function Home() {
     <div className="home-page">
       <section className="hero">
         <div className="container hero-inner">
-          <h1>Flowers for your heart. Socks for your soles.</h1>
+          <h1>Flowers for your soul, socks for your sole.</h1>
           <p>
             A groovy little shop with fresh blooms and cozy, colorful socks
             &mdash; because life's better with a little retro charm.
