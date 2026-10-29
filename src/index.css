@@ -1,0 +1,210 @@
+/* ---------- Theme variables (retro / groovy palette) ---------- */
+:root {
+  --color-primary: #d9622b; /* burnt orange */
+  --color-primary-dark: #b84f1f;
+  --color-accent: #e3b23c; /* mustard yellow */
+  --color-flowers: #b13e2c; /* vintage red, used for the "Flowers" pill */
+  --color-socks: #5b7a4c; /* avocado green, used for the "Socks" pill */
+  --color-bg: #f6ead9; /* warm cream */
+  --color-surface: #fffaf0;
+  --color-text: #3b2a1e; /* deep brown */
+  --color-text-muted: #7a6752;
+  --color-border: #3b2a1e;
+  --color-shadow: #3b2a1e;
+  --color-danger: #b13e2c;
+  --shadow-sm: 3px 3px 0 var(--color-shadow);
+  --shadow-md: 5px 5px 0 var(--color-shadow);
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --font-display: "Alfa Slab One", "Georgia", serif;
+  --font-body: "Poppins", system-ui, -apple-system, sans-serif;
+}
+
+/* Dark theme overrides, toggled via data-theme="dark" on <html> */
+[data-theme="dark"] {
+  --color-bg: #241811;
+  --color-surface: #32221a;
+  --color-text: #f3e6cf;
+  --color-text-muted: #c9b291;
+  --color-border: #c9a66b;
+  --color-shadow: #000000;
+}
+
+/* ---------- Reset ---------- */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+/* ---------- Layout utilities ---------- */
+.container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 2px solid transparent;
+  border-radius: var(--radius-sm);
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    background-color 0.15s ease;
+}
+
+.btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--color-shadow);
+}
+
+.btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--color-shadow);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  border-color: var(--color-text);
+  color: #fff8ec;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.btn-outline {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.btn-outline:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-danger {
+  background-color: var(--color-surface);
+  color: var(--color-danger);
+  border-color: var(--color-danger);
+}
+
+.btn-danger:hover {
+  background-color: var(--color-danger);
+  color: #fff8ec;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* ---------- Shared surfaces ---------- */
+.card {
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.pill {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background-color: rgba(227, 178, 60, 0.25);
+  color: var(--color-primary-dark);
+  border: 1.5px solid currentColor;
+}
+
+.pill-flowers {
+  background-color: rgba(177, 62, 44, 0.15);
+  color: var(--color-flowers);
+}
+
+.pill-socks {
+  background-color: rgba(91, 122, 76, 0.18);
+  color: var(--color-socks);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background-color: var(--color-primary);
+  color: #fff8ec;
+  font-size: 0.72rem;
+  font-weight: 700;
+  border: 1.5px solid var(--color-text);
+}

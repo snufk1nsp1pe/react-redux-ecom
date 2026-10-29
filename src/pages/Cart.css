@@ -1,0 +1,151 @@
+.cart-page {
+  padding: 32px 24px 64px;
+}
+
+.cart-page h1 {
+  font-size: 1.7rem;
+  font-weight: 800;
+  margin-bottom: 24px;
+}
+
+.cart-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 24px;
+  align-items: start;
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 72px 1fr auto auto auto;
+  align-items: center;
+  gap: 16px;
+  padding: 14px;
+}
+
+.cart-item-image {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+}
+
+.cart-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.cart-item-info h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.cart-item-price {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.cart-item-subtotal {
+  font-weight: 700;
+  min-width: 70px;
+  text-align: right;
+}
+
+.cart-item-remove {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  color: var(--color-text-muted);
+  border-radius: 999px;
+  font-size: 1rem;
+}
+
+.cart-item-remove:hover {
+  color: var(--color-danger);
+  background-color: var(--color-bg);
+}
+
+.cart-summary {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: sticky;
+  top: 90px;
+}
+
+.cart-summary h2 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.cart-summary-row {
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+}
+
+.cart-summary-total {
+  color: var(--color-text);
+  font-weight: 800;
+  font-size: 1.05rem;
+  border-top: 1px solid var(--color-border);
+  padding-top: 12px;
+}
+
+.continue-shopping {
+  text-align: center;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.continue-shopping:hover {
+  color: var(--color-primary);
+}
+
+.cart-empty {
+  padding: 100px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.cart-empty h1 {
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.cart-empty p {
+  color: var(--color-text-muted);
+  margin-bottom: 8px;
+}
+
+@media (max-width: 860px) {
+  .cart-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-item {
+    grid-template-columns: 60px 1fr auto;
+    row-gap: 10px;
+  }
+
+  .cart-item-subtotal {
+    grid-column: 2 / 3;
+    text-align: left;
+  }
+}
