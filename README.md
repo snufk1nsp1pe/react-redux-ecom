@@ -127,6 +127,23 @@ Redux state appropriately.
 - Dark / light mode toggle (persisted in the Redux `ui` slice)
 - Retro visual theme: warm palette, slab-serif display font, thick outlines
   and hard "pop-art" shadows on cards/buttons, a scalloped hero banner
+- Real product photography for every item (see **Image Credits** below):
+  actual Minecraft flower textures for the Flowers category, and real
+  photos of fun/novelty socks for the Socks category
+
+## Image Credits
+
+All product images are real photos/renders, not illustrations:
+
+- **Flowers** &mdash; actual Minecraft item texture renders generated via
+  [blockrender.dev](https://blockrender.dev), a third-party Minecraft asset
+  renderer (Poppy, Dandelion, Cornflower, Allium, Azure Bluet, Oxeye Daisy).
+- **Socks** &mdash; real photographs from [Pexels](https://www.pexels.com),
+  free to use under the [Pexels License](https://www.pexels.com/license/):
+  duck-print socks by Neva Szpigel, joker-print socks by John (Giannis)
+  Tekeridis, candy-pattern and wild-pattern socks by Licalze Socks,
+  rainbow-stripe socks by SHVETS production, and gift-wrapped colorful socks
+  by cottonbro studio.
 
 ## Instructions for Running
 

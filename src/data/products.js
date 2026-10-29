@@ -1,116 +1,124 @@
 // Static product catalog for the Bloom & Sole demo store.
 // In a real application this would come from an API, but this lab focuses
 // on the React/Redux frontend, so the catalog is hard-coded here.
-// Images come from LoremFlickr, tagged by subject, with a fixed "lock" value
-// so each product keeps the same picture on every reload.
+//
+// Image sources (see README for full credits):
+// - Flowers: real Minecraft item texture renders via blockrender.dev
+// - Socks: real photos from Pexels (free to use under the Pexels License)
 export const products = [
   {
     id: 1,
-    name: "Sunny Daisy Bouquet",
+    name: "Poppy",
     category: "Flowers",
-    price: 24.99,
-    image: "https://loremflickr.com/500/500/daisy,flowers?lock=1",
+    price: 6.99,
+    image: "https://blockrender.dev/render/item/poppy.png?size=512",
     description:
-      "A cheerful hand-tied bunch of fresh daisies, perfect for brightening up any room on a dull day.",
+      "A single, unmistakably red pixel-perfect poppy. A classic pick for any blocky garden or flower pot.",
   },
   {
     id: 2,
-    name: "Vintage Rose Bundle",
+    name: "Dandelion",
     category: "Flowers",
-    price: 34.99,
-    image: "https://loremflickr.com/500/500/roses,flowers?lock=2",
+    price: 4.99,
+    image: "https://blockrender.dev/render/item/dandelion.png?size=512",
     description:
-      "Deep red garden roses wrapped in kraft paper, for a classic, romantic bouquet with a retro feel.",
+      "A cheerful little yellow dandelion. Simple, sunny, and always the first to pop up in spring.",
   },
   {
     id: 3,
-    name: "Wildflower Mix Bunch",
+    name: "Cornflower",
     category: "Flowers",
-    price: 19.99,
-    image: "https://loremflickr.com/500/500/wildflowers?lock=3",
+    price: 5.99,
+    image: "https://blockrender.dev/render/item/cornflower.png?size=512",
     description:
-      "An untamed, colorful mix of seasonal wildflowers - like a meadow picked straight into a vase.",
+      "A cool blue bloom with a dark little center. Pairs perfectly with a poppy for some color contrast.",
   },
   {
     id: 4,
-    name: "Potted Marigold Plant",
+    name: "Allium",
     category: "Flowers",
-    price: 14.99,
-    image: "https://loremflickr.com/500/500/marigold,plant?lock=4",
+    price: 8.99,
+    image: "https://blockrender.dev/render/item/allium.png?size=512",
     description:
-      "A low-maintenance potted marigold that keeps blooming for weeks, right on your windowsill.",
+      "A tall, round, purple pom-pom of a flower. The showiest bloom in the whole patch.",
   },
   {
     id: 5,
-    name: "Dried Lavender Bunch",
+    name: "Azure Bluet",
     category: "Flowers",
-    price: 17.99,
-    image: "https://loremflickr.com/500/500/lavender?lock=5",
+    price: 4.49,
+    image: "https://blockrender.dev/render/item/azure_bluet.png?size=512",
     description:
-      "Fragrant dried lavender stems that keep their color and scent for months - no watering required.",
+      "A tiny white flower with a bright yellow center. Small, delicate, and easy to tuck in anywhere.",
   },
   {
     id: 6,
-    name: "Sunflower Stem Trio",
+    name: "Oxeye Daisy",
     category: "Flowers",
-    price: 22.99,
-    image: "https://loremflickr.com/500/500/sunflower?lock=6",
+    price: 5.49,
+    image: "https://blockrender.dev/render/item/oxeye_daisy.png?size=512",
     description:
-      "Three tall, golden sunflowers that bring instant 70s-summer energy to any table.",
+      "A big, friendly white daisy with a warm golden center. The one everyone plucks petals from.",
   },
   {
     id: 7,
-    name: "Groovy Stripe Crew Socks",
+    name: "Rubber Duck Socks",
     category: "Socks",
-    price: 9.99,
-    image: "https://loremflickr.com/500/500/socks,stripes?lock=101",
+    price: 10.99,
+    image:
+      "https://images.pexels.com/photos/18880821/pexels-photo-18880821.jpeg?auto=compress&cs=tinysrgb&w=800",
     description:
-      "Soft cotton crew socks in bold rainbow stripes - because your ankles deserve some groove too.",
+      "A classic yellow rubber duck print marching across black socks. Squeaky clean style, no bathtub required.",
   },
   {
     id: 8,
-    name: "Retro Argyle Socks",
+    name: "Joker Face Socks",
     category: "Socks",
-    price: 11.99,
-    image: "https://loremflickr.com/500/500/socks,pattern?lock=102",
+    price: 11.49,
+    image:
+      "https://images.pexels.com/photos/14037324/pexels-photo-14037324.jpeg?auto=compress&cs=tinysrgb&w=800",
     description:
-      "A classic argyle pattern reimagined in warm mustard and burnt-orange tones.",
+      "Bold brown-and-yellow socks with a cheeky joker-card design. A playful pair for anyone who likes to clown around.",
   },
   {
     id: 9,
-    name: "Fuzzy Polka Dot Socks",
+    name: "Candy Rain Socks",
     category: "Socks",
-    price: 12.99,
-    image: "https://loremflickr.com/500/500/socks,wool?lock=103",
+    price: 9.99,
+    image:
+      "https://images.pexels.com/photos/15195444/pexels-photo-15195444.jpeg?auto=compress&cs=tinysrgb&w=800",
     description:
-      "Extra-fuzzy knit socks covered in cheerful polka dots, for cozy nights on the couch.",
+      "A sweet shower of candy-colored patterns. As close to eating a rainbow as your feet will ever get.",
   },
   {
     id: 10,
-    name: "Rainbow Terry Socks",
+    name: "Wild Pattern Socks",
     category: "Socks",
-    price: 10.99,
-    image: "https://loremflickr.com/500/500/socks,colorful?lock=104",
+    price: 12.49,
+    image:
+      "https://images.pexels.com/photos/15195384/pexels-photo-15195384.jpeg?auto=compress&cs=tinysrgb&w=800",
     description:
-      "Thick terry-cloth socks in a full rainbow gradient - comfy, cushioned, and impossible to miss.",
+      "A clashing mix of bold, playful patterns in one pair. Matching is overrated anyway.",
   },
   {
     id: 11,
-    name: "Mushroom Pattern Ankle Socks",
+    name: "Rainbow Stripe Socks",
     category: "Socks",
-    price: 8.99,
-    image: "https://loremflickr.com/500/500/socks,cute?lock=105",
+    price: 10.49,
+    image:
+      "https://images.pexels.com/photos/9050050/pexels-photo-9050050.jpeg?auto=compress&cs=tinysrgb&w=800",
     description:
-      "Playful ankle socks covered in little mushrooms, for a cottagecore touch to any outfit.",
+      "Wide, vivid rainbow stripes from toe to cuff. Impossible to lose in the laundry, impossible not to smile at.",
   },
   {
     id: 12,
-    name: "Checkerboard Knee-High Socks",
+    name: "Surprise Gift Socks",
     category: "Socks",
-    price: 13.99,
-    image: "https://loremflickr.com/500/500/socks,fashion?lock=106",
+    price: 13.49,
+    image:
+      "https://images.pexels.com/photos/6832965/pexels-photo-6832965.jpeg?auto=compress&cs=tinysrgb&w=800",
     description:
-      "Bold black-and-cream checkerboard knee-highs, straight out of a 70s skate park.",
+      "A cozy, colorful pair that looks just as good gift-wrapped as it does on your feet.",
   },
 ];
 
