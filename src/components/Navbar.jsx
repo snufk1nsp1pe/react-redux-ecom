@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
+import { BrandMark } from "./BrandMark.jsx";
 import { selectCartTotalQuantity } from "../features/cart/cartSlice";
 import { selectDarkMode, toggleDarkMode } from "../features/ui/uiSlice";
 
@@ -13,7 +14,7 @@ function Navbar() {
     <header className="navbar">
       <div className="container navbar-inner">
         <NavLink to="/" className="navbar-brand">
-          <span className="navbar-logo">🌻</span>
+          <BrandMark className="navbar-logo" />
           <span>Virestis</span>
         </NavLink>
 

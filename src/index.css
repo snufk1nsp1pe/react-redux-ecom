@@ -87,6 +87,13 @@ p {
   margin: 0;
 }
 
+/* ---------- Brandmark ---------- */
+.brand-mark {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+
 /* ---------- Layout utilities ---------- */
 .container {
   width: 100%;
