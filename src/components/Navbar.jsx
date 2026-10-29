@@ -14,7 +14,7 @@ function Navbar() {
       <div className="container navbar-inner">
         <NavLink to="/" className="navbar-brand">
           <span className="navbar-logo">🌻</span>
-          <span>Bloom &amp; Sole</span>
+          <span>Virestis</span>
         </NavLink>
 
         <nav className="navbar-links">
