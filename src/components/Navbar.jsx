@@ -46,7 +46,7 @@ function Navbar() {
             aria-label="Toggle dark mode"
             title="Toggle dark mode"
           >
-            {darkMode ? "☀️" : "🌙"}
+            {darkMode ? "☀︎" : "⏾"}
           </button>
         </nav>
       </div>
