@@ -1,20 +1,20 @@
-import { useMemo, useState } from "react";
-import "./Home.css";
-import ProductCard from "../components/ProductCard.jsx";
-import SearchBar from "../components/SearchBar.jsx";
-import CategoryFilter from "../components/CategoryFilter.jsx";
-import { products, categories } from "../data/products";
+import { useMemo, useState } from 'react';
+import './Home.css';
+import ProductCard from '../components/ProductCard.jsx';
+import SearchBar from '../components/SearchBar.jsx';
+import CategoryFilter from '../components/CategoryFilter.jsx';
+import { products, categories } from '../data/products';
 
 function Home() {
   // Search term and category filter are purely local UI state: nothing
   // outside this page needs to know about them, so Redux isn't necessary here.
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('All');
 
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
       const matchesCategory =
-        selectedCategory === "All" || product.category === selectedCategory;
+        selectedCategory === 'All' || product.category === selectedCategory;
       const matchesSearch = product.name
         .toLowerCase()
         .includes(searchTerm.trim().toLowerCase());
@@ -27,16 +27,16 @@ function Home() {
       <section className="hero">
         <div className="container hero-inner">
           <h1>Flowers for your soul, socks for your sole.</h1>
-          <p>
-            A groovy little shop with fresh blooms and cozy, colorful socks
-            &mdash; because life's better with a little retro charm.
-          </p>
+          <p>A groovy little shop with fresh blooms and cozy, colorful socks</p>
         </div>
       </section>
 
       <section className="container">
         <div className="filters-row">
-          <SearchBar value={searchTerm} onChange={setSearchTerm} />
+          <SearchBar
+            value={searchTerm}
+            onChange={setSearchTerm}
+          />
           <CategoryFilter
             categories={categories}
             selectedCategory={selectedCategory}
@@ -47,13 +47,15 @@ function Home() {
         {filteredProducts.length > 0 ? (
           <div className="product-grid">
             {filteredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <ProductCard
+                key={product.id}
+                product={product}
+              />
             ))}
           </div>
         ) : (
           <p className="empty-message">
-            No products match your search. Try a different keyword or
-            category.
+            No products match your search. Try a different keyword or category.
           </p>
         )}
       </section>
