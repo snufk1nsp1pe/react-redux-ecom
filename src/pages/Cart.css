@@ -134,6 +134,31 @@
   margin-bottom: 8px;
 }
 
+.cart-hint,
+.cart-error,
+.cart-success {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.cart-hint {
+  color: var(--color-text-muted);
+}
+
+.cart-hint a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.cart-error {
+  color: var(--color-danger);
+}
+
+.cart-success {
+  color: var(--color-socks);
+}
+
 @media (max-width: 860px) {
   .cart-layout {
     grid-template-columns: 1fr;

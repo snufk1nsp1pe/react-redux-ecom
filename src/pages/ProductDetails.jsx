@@ -1,24 +1,59 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import "./ProductDetails.css";
 import QuantitySelector from "../components/QuantitySelector.jsx";
-import { products } from "../data/products";
+import { fetchProductById } from "../api/products";
 import { addToCart } from "../features/cart/cartSlice";
 import { getCategoryPillClass } from "../utils/categoryStyle";
 
 function ProductDetails() {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const product = products.find((p) => p.id === Number(id));
-
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [justAdded, setJustAdded] = useState(false);
 
-  if (!product) {
+  useEffect(() => {
+    let cancelled = false;
+
+    setLoading(true);
+    fetchProductById(id)
+      .then((data) => {
+        if (!cancelled) {
+          setProduct(data);
+          setError(null);
+        }
+      })
+      .catch((err) => {
+        if (!cancelled) {
+          setError(err.message || "Could not load product");
+          setProduct(null);
+        }
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [id]);
+
+  if (loading) {
     return (
       <div className="container product-details-missing">
-        <p>We couldn&apos;t find that product.</p>
+        <p>Loading product…</p>
+      </div>
+    );
+  }
+
+  if (error || !product) {
+    return (
+      <div className="container product-details-missing">
+        <p>{error || "We couldn't find that product."}</p>
         <Link to="/" className="btn btn-primary">
           Back to shop
         </Link>

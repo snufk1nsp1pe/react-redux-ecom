@@ -7,6 +7,8 @@ import Footer from "./components/Footer.jsx";
 import Home from "./pages/Home.jsx";
 import ProductDetails from "./pages/ProductDetails.jsx";
 import Cart from "./pages/Cart.jsx";
+import Login from "./pages/Login.jsx";
+import Orders from "./pages/Orders.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import { selectDarkMode } from "./features/ui/uiSlice";
 
@@ -30,6 +32,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/login" element={<Login />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

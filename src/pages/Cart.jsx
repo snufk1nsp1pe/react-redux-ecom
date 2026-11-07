@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Cart.css";
 import QuantitySelector from "../components/QuantitySelector.jsx";
+import { createOrder } from "../api/orders";
 import {
   clearCart,
   decreaseQuantity,
@@ -10,18 +12,29 @@ import {
   selectCartItems,
   selectCartTotalPrice,
 } from "../features/cart/cartSlice";
+import {
+  selectAuthToken,
+  selectIsLoggedIn,
+} from "../features/auth/authSlice";
 import { getCategoryPillClass } from "../utils/categoryStyle";
 
 function Cart() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const items = useSelector(selectCartItems);
   const totalPrice = useSelector(selectCartTotalPrice);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const token = useSelector(selectAuthToken);
+  const [checkoutMessage, setCheckoutMessage] = useState(null);
+  const [checkoutError, setCheckoutError] = useState(null);
+  const [submitting, setSubmitting] = useState(false);
 
   if (items.length === 0) {
     return (
       <div className="container cart-empty">
         <h1>Your cart is empty</h1>
         <p>Looks like you haven&apos;t added anything yet.</p>
+        {checkoutMessage && <p className="cart-success">{checkoutMessage}</p>}
         <Link to="/" className="btn btn-primary">
           Browse products
         </Link>
@@ -29,11 +42,37 @@ function Cart() {
     );
   }
 
-  const handleCheckout = () => {
-    // No backend/payment integration in this lab - this is just a placeholder.
-    window.alert(
-      "This is a demo store. Checkout and payment are not implemented yet.",
-    );
+  const handleCheckout = async () => {
+    setCheckoutError(null);
+    setCheckoutMessage(null);
+
+    if (!isLoggedIn) {
+      navigate("/login", { state: { from: "/cart" } });
+      return;
+    }
+
+    setSubmitting(true);
+    try {
+      const order = await createOrder(
+        token,
+        items.map((item) => ({
+          productId: item.id,
+          name: item.name,
+          price: item.price,
+          quantity: item.quantity,
+          image: item.image,
+        })),
+      );
+
+      dispatch(clearCart());
+      setCheckoutMessage(
+        `Order placed! Total $${order.total.toFixed(2)}. Saved to the database.`,
+      );
+    } catch (err) {
+      setCheckoutError(err.message || "Checkout failed");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -93,12 +132,28 @@ function Cart() {
             <span>${totalPrice.toFixed(2)}</span>
           </div>
 
+          {!isLoggedIn && (
+            <p className="cart-hint">
+              Log in to place an order.{" "}
+              <Link to="/login" state={{ from: "/cart" }}>
+                Log in
+              </Link>
+            </p>
+          )}
+
+          {checkoutError && <p className="cart-error">{checkoutError}</p>}
+
           <button
             type="button"
             className="btn btn-primary btn-block"
             onClick={handleCheckout}
+            disabled={submitting}
           >
-            Checkout
+            {submitting
+              ? "Placing order…"
+              : isLoggedIn
+                ? "Checkout"
+                : "Log in to checkout"}
           </button>
           <button
             type="button"

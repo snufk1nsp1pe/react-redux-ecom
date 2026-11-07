@@ -54,6 +54,22 @@
   color: var(--color-primary);
 }
 
+.navbar-button {
+  border: none;
+  background: none;
+  font: inherit;
+  padding: 6px 2px;
+}
+
+.navbar-user {
+  font-weight: 600;
+  color: var(--color-text);
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .theme-toggle {
   display: flex;
   align-items: center;
