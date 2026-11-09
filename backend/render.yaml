@@ -1,0 +1,23 @@
+# Deploy this folder as a Web Service on Render:
+# Dashboard → New → Blueprint → select this repo, or create a Web Service
+# with Root Directory = backend
+services:
+  - type: web
+    name: virestis-api
+    runtime: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 1h
+      - key: CORS_ORIGIN
+        sync: false

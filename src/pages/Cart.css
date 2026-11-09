@@ -1,16 +1,15 @@
 .cart-page {
-  padding: 32px 24px 64px;
+  padding: 36px 24px 64px;
 }
 
 .cart-page h1 {
-  font-size: 1.7rem;
-  font-weight: 800;
-  margin-bottom: 24px;
+  font-size: 1.65rem;
+  margin-bottom: 28px;
 }
 
 .cart-layout {
   display: grid;
-  grid-template-columns: 1fr 320px;
+  grid-template-columns: 1fr 300px;
   gap: 24px;
   align-items: start;
 }
@@ -18,7 +17,7 @@
 .cart-items {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
 .cart-item {
@@ -34,6 +33,7 @@
   height: 72px;
   object-fit: cover;
   border-radius: var(--radius-sm);
+  background: var(--color-bg);
 }
 
 .cart-item-info {
@@ -44,8 +44,9 @@
 }
 
 .cart-item-info h3 {
+  font-family: var(--font-body);
   font-size: 0.95rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .cart-item-price {
@@ -66,26 +67,25 @@
   background: transparent;
   color: var(--color-text-muted);
   border-radius: 999px;
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 
 .cart-item-remove:hover {
   color: var(--color-danger);
-  background-color: var(--color-bg);
+  background-color: rgba(177, 62, 44, 0.08);
 }
 
 .cart-summary {
-  padding: 20px;
+  padding: 22px;
   display: flex;
   flex-direction: column;
   gap: 12px;
   position: sticky;
-  top: 90px;
+  top: 88px;
 }
 
 .cart-summary h2 {
-  font-size: 1.1rem;
-  font-weight: 800;
+  font-size: 1.05rem;
   margin-bottom: 4px;
 }
 
@@ -98,17 +98,19 @@
 
 .cart-summary-total {
   color: var(--color-text);
-  font-weight: 800;
+  font-weight: 700;
   font-size: 1.05rem;
   border-top: 1px solid var(--color-border);
   padding-top: 12px;
+  margin-top: 4px;
 }
 
 .continue-shopping {
   text-align: center;
   color: var(--color-text-muted);
-  font-weight: 600;
+  font-weight: 500;
   margin-top: 4px;
+  font-size: 0.9rem;
 }
 
 .continue-shopping:hover {
@@ -125,8 +127,7 @@
 }
 
 .cart-empty h1 {
-  font-size: 1.6rem;
-  font-weight: 800;
+  font-size: 1.55rem;
 }
 
 .cart-empty p {
@@ -138,8 +139,8 @@
 .cart-error,
 .cart-success {
   margin: 0;
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 0.88rem;
+  font-weight: 500;
 }
 
 .cart-hint {
@@ -172,5 +173,9 @@
   .cart-item-subtotal {
     grid-column: 2 / 3;
     text-align: left;
+  }
+
+  .cart-summary {
+    position: static;
   }
 }
