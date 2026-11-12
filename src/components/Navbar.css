@@ -2,34 +2,30 @@
   position: sticky;
   top: 0;
   z-index: 10;
-  background-color: rgba(255, 252, 247, 0.88);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--color-border);
-}
-
-[data-theme="dark"] .navbar {
-  background-color: rgba(42, 32, 25, 0.88);
+  background-color: var(--color-surface);
+  border-bottom: 3px solid var(--color-border);
 }
 
 .navbar-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  height: 68px;
 }
 
 .navbar-brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   color: var(--color-primary);
+  letter-spacing: 0;
 }
 
 .navbar-logo {
   display: block;
-  height: 30px;
+  height: 34px;
   width: auto;
   color: var(--color-primary);
 }
@@ -37,7 +33,7 @@
 .navbar-links {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 24px;
 }
 
 .navbar-link {
@@ -45,45 +41,33 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-weight: 500;
-  font-size: 0.92rem;
+  font-weight: 600;
   color: var(--color-text-muted);
-  padding: 8px 12px;
-  border-radius: 999px;
-  transition:
-    color 0.15s ease,
-    background-color 0.15s ease;
+  padding: 6px 2px;
 }
 
 .navbar-link:hover {
   color: var(--color-text);
-  background-color: rgba(47, 36, 28, 0.04);
-}
-
-[data-theme="dark"] .navbar-link:hover {
-  background-color: rgba(244, 235, 224, 0.06);
 }
 
 .navbar-link.active {
   color: var(--color-primary);
-  background-color: rgba(139, 46, 46, 0.1);
 }
 
 .navbar-button {
   border: none;
   background: none;
   font: inherit;
+  padding: 6px 2px;
 }
 
 .navbar-user {
-  font-weight: 500;
-  font-size: 0.9rem;
+  font-weight: 600;
   color: var(--color-text);
-  max-width: 110px;
+  max-width: 120px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  padding: 0 6px;
 }
 
 .theme-toggle {
@@ -92,35 +76,12 @@
   justify-content: center;
   width: 36px;
   height: 36px;
-  margin-left: 4px;
   border-radius: 999px;
-  border: 1px solid var(--color-border-strong);
+  border: 2px solid var(--color-border);
   background-color: transparent;
-  font-size: 0.95rem;
-  color: var(--color-text-muted);
-  transition:
-    border-color 0.15s ease,
-    color 0.15s ease,
-    background-color 0.15s ease;
+  font-size: 1rem;
 }
 
 .theme-toggle:hover {
   border-color: var(--color-primary);
-  color: var(--color-primary);
-  background-color: rgba(139, 46, 46, 0.06);
-}
-
-@media (max-width: 720px) {
-  .navbar-links {
-    gap: 2px;
-  }
-
-  .navbar-link {
-    padding: 8px 8px;
-    font-size: 0.85rem;
-  }
-
-  .navbar-user {
-    display: none;
-  }
 }

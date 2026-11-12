@@ -1,13 +1,12 @@
 .product-details {
-  padding: 36px 24px 64px;
+  padding: 32px 24px 64px;
 }
 
 .back-link {
   display: inline-block;
-  margin-bottom: 22px;
+  margin-bottom: 20px;
   color: var(--color-text-muted);
-  font-weight: 500;
-  font-size: 0.92rem;
+  font-weight: 600;
 }
 
 .back-link:hover {
@@ -18,7 +17,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
-  align-items: start;
 }
 
 .product-details-image {
@@ -36,37 +34,34 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding-top: 8px;
 }
 
 .product-details-info h1 {
-  font-size: clamp(1.6rem, 3vw, 2rem);
+  font-size: 1.8rem;
+  font-weight: 800;
 }
 
 .product-details-price {
-  font-size: 1.45rem;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 800;
   color: var(--color-primary);
 }
 
 .product-details-description {
   color: var(--color-text-muted);
-  line-height: 1.65;
-  max-width: 42ch;
+  line-height: 1.6;
 }
 
 .product-details-actions {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin-top: 14px;
-  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 12px;
 }
 
 .added-confirmation {
   color: var(--color-socks);
-  font-weight: 600;
-  font-size: 0.92rem;
+  font-weight: 700;
 }
 
 .product-details-missing {
@@ -81,6 +76,5 @@
 @media (max-width: 720px) {
   .product-details-grid {
     grid-template-columns: 1fr;
-    gap: 24px;
   }
 }

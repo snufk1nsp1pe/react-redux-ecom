@@ -9,23 +9,29 @@ const secureRoutes = require("./routes/secureRoutes");
 
 const app = express();
 
-// Needed so express-rate-limit sees the real client IP behind Render/Railway/etc.
-app.set("trust proxy", 1);
+// <<<<<<< HEAD
+// // Needed so express-rate-limit sees the real client IP behind Render/Railway/etc.
+// app.set("trust proxy", 1);
 
-function parseCorsOrigin(value) {
-  if (!value || value.trim() === "*") return true;
-  const list = value
-    .split(",")
-    .map((origin) => origin.trim().replace(/\/+$/, ""))
-    .filter(Boolean);
-  return list.length <= 1 ? list[0] || true : list;
-}
+// function parseCorsOrigin(value) {
+//   if (!value || value.trim() === "*") return true;
+//   const list = value
+//     .split(",")
+//     .map((origin) => origin.trim().replace(/\/+$/, ""))
+//     .filter(Boolean);
+//   return list.length <= 1 ? list[0] || true : list;
+// }
 
-app.use(
-  cors({
-    origin: parseCorsOrigin(process.env.CORS_ORIGIN),
-  }),
-);
+// app.use(
+//   cors({
+//     origin: parseCorsOrigin(process.env.CORS_ORIGIN),
+//   }),
+// );
+// =======
+// Only allow requests from the configured frontend origin (the React dev
+// server from TD-TP 2 by default).
+app.use(cors({ origin: process.env.CORS_ORIGIN || "*" }));
+// >>>>>>> parent of 603a691 (bb)
 app.use(express.json());
 
 // Applied to every route: 100 requests per 15 minutes per client IP.
