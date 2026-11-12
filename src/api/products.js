@@ -1,4 +1,4 @@
-const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5000";
+import { getApiBase } from "./client";
 
 // Maps a MongoDB product document to the shape the React UI already uses
 // (`id` + `image` instead of `_id` + `imageUrl`).
@@ -15,7 +15,7 @@ export function mapProduct(doc) {
 }
 
 export async function fetchProducts() {
-  const res = await fetch(`${API_BASE}/api/products`);
+  const res = await fetch(`${getApiBase()}/api/products`);
   if (!res.ok) {
     throw new Error("Failed to load products");
   }
@@ -24,7 +24,7 @@ export async function fetchProducts() {
 }
 
 export async function fetchProductById(id) {
-  const res = await fetch(`${API_BASE}/api/products/${id}`);
+  const res = await fetch(`${getApiBase()}/api/products/${id}`);
   if (!res.ok) {
     if (res.status === 404) return null;
     throw new Error("Failed to load product");

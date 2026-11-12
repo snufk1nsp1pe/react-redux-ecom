@@ -14,7 +14,10 @@ app.set("trust proxy", 1);
 
 function parseCorsOrigin(value) {
   if (!value || value.trim() === "*") return true;
-  const list = value.split(",").map((origin) => origin.trim()).filter(Boolean);
+  const list = value
+    .split(",")
+    .map((origin) => origin.trim().replace(/\/+$/, ""))
+    .filter(Boolean);
   return list.length <= 1 ? list[0] || true : list;
 }
 

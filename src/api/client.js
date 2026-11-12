@@ -1,6 +1,14 @@
-const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5000";
+const configuredApiBase = import.meta.env.VITE_API_URL?.trim().replace(/\/+$/, "");
+const API_BASE =
+  configuredApiBase || (import.meta.env.DEV ? "http://localhost:5000" : "");
 
 export function getApiBase() {
+  if (!API_BASE) {
+    throw new Error(
+      "VITE_API_URL is not configured. Set it to your deployed backend URL and rebuild the frontend.",
+    );
+  }
+
   return API_BASE;
 }
 
@@ -14,7 +22,7 @@ export async function apiFetch(path, { token, ...options } = {}) {
     headers.Authorization = `Bearer ${token}`;
   }
 
-  const res = await fetch(`${API_BASE}${path}`, {
+  const res = await fetch(`${getApiBase()}${path}`, {
     ...options,
     headers,
   });

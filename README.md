@@ -19,9 +19,9 @@ The visual identity leans into a warm, groovy **70s retro look**: cream and
 mustard tones, burnt-orange accents, a bold slab-serif display font, thick
 outlines and hard "pop-art" drop shadows on cards and buttons.
 
-This project only covers the **frontend**. There is no backend, database,
-authentication or real payment processing — the "Checkout" button simply
-shows a message explaining that it's a demo.
+The app loads its product catalog and supports authentication and orders via
+the REST API in `backend/`. The "Checkout" button remains a demo and does not
+process real payments.
 
 ## Technologies Used
 
@@ -164,3 +164,13 @@ npm run build     # Production build (output in dist/)
 npm run preview   # Preview the production build locally
 npm run lint      # Run oxlint
 ```
+
+## Deploying the frontend and backend
+
+The frontend needs the backend URL at build time. In your frontend host's
+environment settings, set `VITE_API_URL` to the deployed backend's base URL
+(for example, `https://your-api.onrender.com`, with no `/api` suffix), then
+redeploy the frontend. The backend must allow the exact frontend origin in
+`CORS_ORIGIN` (for example, `https://your-shop.vercel.app`, with no trailing
+slash). Check `https://your-api.onrender.com/api/health` to verify the API is
+running.

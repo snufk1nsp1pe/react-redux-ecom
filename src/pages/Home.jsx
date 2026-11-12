@@ -79,7 +79,9 @@ function Home() {
         {loading ? (
           <p className="empty-message">Loading products…</p>
         ) : error ? (
-          <p className="empty-message">{error}. Is the backend running on port 5000?</p>
+          <p className="empty-message">
+            {error}. Check the deployed API URL and CORS settings.
+          </p>
         ) : filteredProducts.length > 0 ? (
           <div className="product-grid">
             {filteredProducts.map((product) => (
