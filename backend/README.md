@@ -316,12 +316,11 @@ JWT system. To test it end-to-end with Postman:
 
 ## CORS and Frontend Integration
 
-`src/app.js` enables CORS for the origin configured in `CORS_ORIGIN`
-(defaults to the Vite dev server at `http://localhost:5173`). For production,
-set the frontend host's `VITE_API_URL` build variable to this service's base
-URL (without `/api`), and set this service's `CORS_ORIGIN` to the frontend
-origin (without a trailing slash). Redeploy the frontend after changing
-`VITE_API_URL`; Vite embeds it in the production build.
+`src/app.js` enables CORS for the origin configured in `CORS_ORIGIN`.
+For a combined Render deployment, the frontend and API are served from the
+same origin, so no frontend URL or `VITE_API_URL` setting is needed. Deploy
+from the repository root using its `render.yaml`; Render builds the frontend
+and the backend serves that build alongside the API.
 
 All `/api/products` responses are plain JSON arrays/objects, so the React app
 can fetch them directly, for example:

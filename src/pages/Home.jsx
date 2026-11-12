@@ -80,7 +80,7 @@ function Home() {
           <p className="empty-message">Loading products…</p>
         ) : error ? (
           <p className="empty-message">
-            {error}. Check the deployed API URL and CORS settings.
+            {error}. Check that the API service and database are configured.
           </p>
         ) : filteredProducts.length > 0 ? (
           <div className="product-grid">

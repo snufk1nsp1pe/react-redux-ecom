@@ -165,12 +165,16 @@ npm run preview   # Preview the production build locally
 npm run lint      # Run oxlint
 ```
 
-## Deploying the frontend and backend
+## Deploying the frontend and backend together on Render
 
-The frontend needs the backend URL at build time. In your frontend host's
-environment settings, set `VITE_API_URL` to the deployed backend's base URL
-(for example, `https://your-api.onrender.com`, with no `/api` suffix), then
-redeploy the frontend. The backend must allow the exact frontend origin in
-`CORS_ORIGIN` (for example, `https://your-shop.vercel.app`, with no trailing
-slash). Check `https://your-api.onrender.com/api/health` to verify the API is
-running.
+This repository includes a root-level `render.yaml` that deploys the frontend
+and backend as one Render web service. In Render, choose **New → Blueprint**
+and connect this repository. Have a MongoDB Atlas connection string ready.
+When prompted, provide it as `MONGODB_URI` and make sure Atlas Network Access
+allows connections from Render; Render generates `JWT_SECRET`. Do not create
+a separate static site for the frontend.
+
+Render builds the Vite app and starts Express, which serves both the frontend
+and `/api` routes from the same URL. No `VITE_API_URL` setting is needed. Once
+the service is live, open its root URL for the shop and
+`<your-service-url>/api/health` to check the API.
